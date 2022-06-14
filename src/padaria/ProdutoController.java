@@ -23,11 +23,11 @@ public class ProdutoController extends Pessoa {
         produtos = new ArrayList();
     }
 
-    public void cadastrar(double preco, String descricao, String dataValidade, boolean disponivel) {
+    public void cadastrar(double preco, String descricao, String dataValidade, int quantidade) {
         nextCodigo++;
         Produto produto;
         try {
-            produto = new Produto(nextCodigo, preco, descricao, dataValidade, disponivel);
+            produto = new Produto(nextCodigo, preco, descricao, dataValidade, quantidade);
             produtos.add(produto);
         } catch (Exception ex) {
             Logger.getLogger(ProdutoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -36,7 +36,7 @@ public class ProdutoController extends Pessoa {
 
     public void listar() {
         for (Produto p : produtos) {
-            p.toString();
+            System.out.println(p.toString());
         }
     }
 
@@ -108,6 +108,15 @@ public class ProdutoController extends Pessoa {
             }
         }
         return qtd;
+    }
+
+    void remover(long codigo) {
+        for (int i = 0; i<produtos.size();i++) {
+            Produto p = produtos.get(i);
+            if (p.getCodigo() == codigo) {
+                produtos.remove(i);
+            }
+        }
     }
 
 }

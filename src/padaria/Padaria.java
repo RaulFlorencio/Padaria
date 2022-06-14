@@ -21,13 +21,16 @@ public class Padaria {
             System.out.println("|7| Buscar clientes por nome");
             System.out.println("|8| Buscar funcionario por nome");
             System.out.println("|9| Buscar produto por nome");
-            System.out.println("|10| Buscar produto por codigo");
+            System.out.println("|10| Buscar produto por código");
             System.out.println("|11| Buscar produto por preco");
             System.out.println("|12| Produto mais caro");
             System.out.println("|13| Produto mais barato");
             System.out.println("|14| Produto preço médio");
             System.out.println("|15| Produto acima do preço médio");
-            System.out.println("|16| Sair");
+            System.out.println("|16| Remover cliente por código");
+            System.out.println("|17| Remover funcionário por código");
+            System.out.println("|18| Remover produto por código");
+            System.out.println("|19| Sair");
             System.out.println("Digite a Opção: ");
             String opcao = scanner.nextLine();
             switch (opcao) {
@@ -65,9 +68,11 @@ public class Padaria {
                     String descricao = scanner.nextLine();
                     System.out.println("Preço:");
                     double preco = Double.parseDouble(scanner.nextLine());
+                    System.out.println("Quantidade:");
+                    int quantidade = Integer.parseInt(scanner.nextLine());
                     System.out.println("Data validade:");
                     String dataValidade = scanner.nextLine();
-                    produtoController.cadastrar(preco, descricao, dataValidade, true);
+                    produtoController.cadastrar(preco, descricao, dataValidade, quantidade);
                     break;
                 case "4":
                     System.out.println("-------------Listar clientes-------------");
@@ -128,6 +133,24 @@ public class Padaria {
                     System.out.println(produtoController.qtdSupeiorAvgPreco());
                     break;
                 case "16":
+                    System.out.println("-------------Remover cliente por código-------------");
+                    System.out.println("Código:");
+                    codigo = Long.parseLong(scanner.nextLine());
+                    clienteController.remover(codigo);
+                    break;
+                case "17":
+                    System.out.println("-------------Remover funcionário por código-------------");
+                    System.out.println("Código:");
+                    codigo = Long.parseLong(scanner.nextLine());
+                    funcionarioController.remover(codigo);
+                    break;
+                case "18":
+                    System.out.println("-------------Remover produto por código-------------");
+                    System.out.println("Código:");
+                    codigo = Long.parseLong(scanner.nextLine());
+                    produtoController.remover(codigo);
+                    break;
+                case "19":
                     System.out.println("-------------Godbye!-------------");
                     break menu;
             }

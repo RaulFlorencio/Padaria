@@ -5,15 +5,15 @@ public class Produto {
     private double preco;
     private String descricao;
     private String dataValidade;
-    private boolean disponivel;
+    private int quantidade;
 
-    public Produto(long codigo, double preco, String descricao, String dataValidade, boolean disponivel) throws Exception {
+    public Produto(long codigo, double preco, String descricao, String dataValidade, int quantidade) throws Exception {
         if(preco<0) throw new Exception("Preço negativo");
         this.codigo = codigo;
         this.preco = preco;
         this.descricao = descricao;
         this.dataValidade = dataValidade;
-        this.disponivel = disponivel;
+        this.quantidade = quantidade;
     }
 
     public double getPreco() {
@@ -33,8 +33,8 @@ public class Produto {
         return codigo;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+    public int getQuantidade() {
+        return quantidade;
     }
 
     public void setPreco(double preco) {
@@ -53,13 +53,13 @@ public class Produto {
         this.codigo = codigo;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
+    public void setQuantidade(int disponivel) {
+        this.quantidade = disponivel;
     }
 
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", preco=" + preco + ", descricao=" + descricao + ", dataValidade=" + dataValidade + ", disponivel=" + disponivel + '}';
+        return "Produto{" + "codigo=" + codigo + ", preco=" + preco + ", descricao=" + descricao + ", dataValidade=" + dataValidade + ", disponivel=" + quantidade + '}';
     }
 
 }

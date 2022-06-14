@@ -49,4 +49,13 @@ public class ClienteController extends Pessoa {
         }
     }
 
+    void remover(long codigo) {
+        for (int i = 0; i<clientes.size();i++) {
+            Cliente f = clientes.get(i);
+            if (f.getCodigo() == codigo) {
+                clientes.remove(i);
+            }
+        }
+    }
+
 }

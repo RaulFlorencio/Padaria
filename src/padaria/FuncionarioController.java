@@ -48,4 +48,13 @@ public class FuncionarioController extends Pessoa {
         }
     }
 
+    void remover(long codigo) {
+         for (int i = 0; i<funcionarios.size();i++) {
+            Funcionario f = funcionarios.get(i);
+            if (f.getCodigo() == codigo) {
+                funcionarios.remove(i);
+            }
+        }
+    }
+
 }
